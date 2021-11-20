@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController: MonoBehaviour {
     //CONTROLS THE PLAYER MOVEMENT VIA RIGIDBODY
     //public vars
     public static PlayerController instance;
@@ -18,11 +17,11 @@ public class PlayerController : MonoBehaviour
     private bool _grounded = true;
 
     //properties
-    public bool Grounded{ 
-        get{
+    public bool Grounded {
+        get {
             return _grounded;
         }
-        set{
+        set {
             _grounded = value;
         }
     }
@@ -42,20 +41,20 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate() { 
+    void FixedUpdate() {
         //horizontal axis
         rb.AddForce(CrossPlatformInputManager.GetAxis("Horizontal") * speed * Vector2.right, ForceMode2D.Impulse);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
 
         //vertical, jumping
-        if(CrossPlatformInputManager.GetButtonDown("Jump")){
+        if(CrossPlatformInputManager.GetButtonDown("Jump")) {
             //CHECK FOR GROUNDED, TEST FIRST THEN ADD CHECK
             rb.AddForce(Vector2.up * jumpStrength);
         }
 
         //stopping motion if nothing is pressed
-        if(CrossPlatformInputManager.GetAxis("Horizontal") == 0){
-            rb.velocity = new Vector2(0 , rb.velocity.y);
+        if(CrossPlatformInputManager.GetAxis("Horizontal") == 0) {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
 }
