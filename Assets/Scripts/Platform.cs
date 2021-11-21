@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    //NOT WORKING FOR NOW, NEED FIX
-    private void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag == "Player"){
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.tag == "Player") {
             PlayerController.instance.Grounded = true;
-            Debug.Log("player grounded");
         }
     }
 }
