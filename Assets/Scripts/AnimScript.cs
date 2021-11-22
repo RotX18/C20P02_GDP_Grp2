@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
+
 
 public class AnimScript : MonoBehaviour
 {
@@ -17,17 +19,15 @@ public class AnimScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
+        float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
         anim.SetFloat("Speed", Mathf.Abs(h));
 
 
-        if(Input.GetKey(KeyCode.Space))
+        if(CrossPlatformInputManager.GetButton("Jump"))
         {
             anim.SetBool("Jump", true);
         }
-        if (Input.GetKeyUp(KeyCode.Space)){
-            anim.SetBool("Jump", false);
-        }
+        
 
         if(h > 0 && !facingRight)
         {
@@ -37,6 +37,14 @@ public class AnimScript : MonoBehaviour
         if (h < 0 && facingRight)
         {
             Flip();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (CrossPlatformInputManager.GetButtonUp("Jump"))
+        {
+            anim.SetBool("Jump", false);
         }
     }
 
