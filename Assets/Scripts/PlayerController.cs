@@ -16,16 +16,19 @@ public class PlayerController: MonoBehaviour{
 
     //attack vars
     public float meleeRange = 1f;
-    public GameObject bulletPrefab;
+    public GameObject bulletPrefabPfizer;
+    public GameObject bulletPrefabModerna;
+    public GameObject bulletPrefabSinovac;
 
     //PRIVATE
     //movement vars
     private Rigidbody2D rb;
     protected bool _grounded = true;
+    protected bool _cannotJump = false;
 
     //attack vars
     protected bool _powered = false;
-    protected string _powerType = "";
+    protected char _powerType = 'n';
 
     //properties
     public bool Grounded {
@@ -34,6 +37,15 @@ public class PlayerController: MonoBehaviour{
         }
         set {
             _grounded = value;
+        }
+    }
+
+    public bool CannotJump{ 
+        get{
+            return _cannotJump;
+        }
+        set{
+            _cannotJump = value;
         }
     }
 
@@ -46,7 +58,7 @@ public class PlayerController: MonoBehaviour{
         }
     }
 
-    public string PowerType{ 
+    public char PowerType{ 
         get{
             return _powerType;
         }
@@ -72,7 +84,7 @@ public class PlayerController: MonoBehaviour{
 
     private void Update() {
         //vertical, jumping
-        if(CrossPlatformInputManager.GetButtonDown("Jump") && _grounded == true) {
+        if(CrossPlatformInputManager.GetButtonDown("Jump") && _grounded && !_cannotJump) {
             _grounded = false;
             rb.MovePosition(new Vector2(transform.position.x, transform.position.y + jumpStrength));
         }
@@ -103,6 +115,21 @@ public class PlayerController: MonoBehaviour{
             
             if(hit.collider.CompareTag("Enemy")) { //if ray hits enemy
                 Destroy(hit.collider.gameObject);
+            }
+        }
+        else if(_powered == true){ 
+            switch(_powerType){
+                //instantiating bullet prefab based on type of vax
+                //n = none (default), p = pfizer, m = moderna, s = sinovac
+                case 'p':
+                    Instantiate(bulletPrefabPfizer, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    break;
+                case 'm':
+                    Instantiate(bulletPrefabModerna, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    break;
+                case 's':
+                    Instantiate(bulletPrefabSinovac, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    break;
             }
         }
     }
