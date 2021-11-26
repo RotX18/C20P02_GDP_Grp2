@@ -8,16 +8,17 @@ public class PfizerPowerUp : BasePowerUp
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.CompareTag("Player")) {
+            //show that the player has "collected" by making it disappear from view
+            gameObject.transform.SetPositionAndRotation(new Vector2(100, 100), Quaternion.identity);
             ApplyPowerUp();
-            Destroy(gameObject);
         }
     }
 
     public override void ApplyPowerUp(){
-        //setting powerup attributes
-        powerUpType = 'p';
-        powerUpDuration = 1;
-        playerSpeedReduction = 15;
+        //setting powerup attributes (change duration and spd reduction as needed)
+        PlayerController.instance.CurrentPower = PlayerController.PowerType.pfizer;
+        powerUpDuration = 8;
+        playerSpeedReduction = 10;
 
         //saving original maxSpeed value
         originalSpeed = PlayerController.instance.maxSpeed;
@@ -26,17 +27,17 @@ public class PfizerPowerUp : BasePowerUp
         PlayerController.instance.maxSpeed -= playerSpeedReduction;
         PlayerController.instance.CannotJump = true;
 
-        Debug.Log("aaa");
         //starting powerup
         base.ApplyPowerUp();
-        StartCoroutine(Waiting(powerUpDuration));
+        StartCoroutine(AfterPowerUp());
     }
 
-    IEnumerator Waiting(int i){
-        yield return new WaitForSeconds(i);
-        //after powerup
+    IEnumerator AfterPowerUp(){
+        //need this cause the code executes without waiting for ApplyPowerUp to finish
+        yield return new WaitForSeconds(powerUpDuration);
+
+        //returning player to unpowered state
         PlayerController.instance.maxSpeed = originalSpeed;
         PlayerController.instance.CannotJump = false;
-        Debug.Log("bbb");
     }
 }

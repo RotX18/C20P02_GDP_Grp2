@@ -12,7 +12,7 @@ public class PlayerController: MonoBehaviour{
     public float moveDist = 0.5f;
     public float jumpStrength = 1f;
     public float speed = 10f;
-    public float maxSpeed = 20f;
+    public float maxSpeed = 15f;
 
     //attack vars
     public float meleeRange = 1f;
@@ -27,8 +27,14 @@ public class PlayerController: MonoBehaviour{
     protected bool _cannotJump = false;
 
     //attack vars
+    public enum PowerType {
+        none,
+        pfizer,
+        moderna,
+        sinovac
+    }
     protected bool _powered = false;
-    protected char _powerType = 'n';
+    protected PowerType _currentPower = PowerType.none;
 
     //properties
     public bool Grounded {
@@ -58,12 +64,12 @@ public class PlayerController: MonoBehaviour{
         }
     }
 
-    public char PowerType{ 
+    public PowerType CurrentPower{ 
         get{
-            return _powerType;
+            return _currentPower;
         }
         set{
-            _powerType = value;
+            _currentPower = value;
         }
     }
 
@@ -118,16 +124,15 @@ public class PlayerController: MonoBehaviour{
             }
         }
         else if(_powered == true){ 
-            switch(_powerType){
+            switch(_currentPower){
                 //instantiating bullet prefab based on type of vax
-                //n = none (default), p = pfizer, m = moderna, s = sinovac
-                case 'p':
+                case PowerType.pfizer:
                     Instantiate(bulletPrefabPfizer, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
                     break;
-                case 'm':
+                case PowerType.moderna:
                     Instantiate(bulletPrefabModerna, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
                     break;
-                case 's':
+                case PowerType.sinovac:
                     Instantiate(bulletPrefabSinovac, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
                     break;
             }
