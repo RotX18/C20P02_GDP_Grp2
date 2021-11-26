@@ -10,7 +10,7 @@ public class PlayerController: MonoBehaviour{
     //movement vars
     public static PlayerController instance;
     public float moveDist = 0.5f;
-    public float jumpStrength = 1f;
+    public float jumpStrength = 2f;
     public float speed = 10f;
     public float maxSpeed = 15f;
 

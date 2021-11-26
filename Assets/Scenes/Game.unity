@@ -332,7 +332,7 @@ Transform:
   m_Children:
   - {fileID: 138867448}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &138867447
 GameObject:
@@ -1509,7 +1509,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209619786
 GameObject:
@@ -1546,12 +1546,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDist: 0.5
-  jumpStrength: 1
+  jumpStrength: 2
   speed: 10
   maxSpeed: 15
   meleeRange: 1
-  bulletPrefabPfizer: {fileID: 0}
-  bulletPrefabModerna: {fileID: 0}
+  bulletPrefabPfizer: {fileID: 8977618755000721493, guid: 341e578b7cfe4c0429636038cbf25931, type: 3}
+  bulletPrefabModerna: {fileID: 4253760999030741353, guid: d35f3890520765840afa2c9127e9a3da, type: 3}
   bulletPrefabSinovac: {fileID: 0}
 --- !u!50 &1209619788
 Rigidbody2D:
@@ -1638,7 +1638,7 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1209619791
 BoxCollider2D:
@@ -1780,7 +1780,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1279200120
 BoxCollider2D:
@@ -1999,6 +1999,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391444372}
   m_CullTransparentMesh: 1
+--- !u!1001 &1461372992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.0018203
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4785156
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018959, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_Name
+      value: PfizerPowerUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
 --- !u!1 &1552430012
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,60 +2310,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b898ce7f7990d1f4e86fd4f05c90d251, type: 3}
---- !u!1001 &609069070588446632
+--- !u!1001 &7661365586833454389
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2210848
+      value: -1.61
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 1.5391139
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 609069070468018959, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+    - target: {fileID: 7661365586855657509, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_Name
-      value: PfizerPowerUp
+      value: ModernaPowerUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}

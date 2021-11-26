@@ -6,14 +6,17 @@ using UnityStandardAssets.CrossPlatformInput;
 public abstract class BaseBullet : MonoBehaviour
 {
     //vars
-    public float bulletSpeed;
-    public float bulletMaxSpeed;
-    public int bulletDamage;
-    public int bulletTime;
+    [HideInInspector] public float bulletSpeed;
+    [HideInInspector] public int bulletDamage;
+    [HideInInspector] public int bulletTime;
 
-    public virtual void ShootBullet(){
-        //bullet should continue to fly for bulletTime seconds before being destroyed
-        Destroy(gameObject, bulletTime);
+    public virtual void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.CompareTag("Enemy")){
+
+            //SUBTRACT HEALTH FROM THE ENEMY HERE
+            //EDIT SO THAT THE ACTUAL CODE HAS AN IF TO CHECK ENEMY HP BEFORE DESTROYING
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
-
 }
