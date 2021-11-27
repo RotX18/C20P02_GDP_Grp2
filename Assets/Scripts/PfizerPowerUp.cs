@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PfizerPowerUp : BasePowerUp
 {
+    public Button btnJump;
     private float originalSpeed;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.CompareTag("Player")) {
             //show that the player has "collected" by making it disappear from view
             gameObject.transform.SetPositionAndRotation(new Vector2(100, 100), Quaternion.identity);
+            btnJump.interactable = false;
             ApplyPowerUp();
         }
     }
@@ -39,5 +42,8 @@ public class PfizerPowerUp : BasePowerUp
         //returning player to unpowered state
         PlayerController.instance.maxSpeed = originalSpeed;
         PlayerController.instance.CannotJump = false;
+
+        //reenabling jump button
+        btnJump.interactable = true;
     }
 }
