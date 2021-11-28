@@ -28,6 +28,7 @@ public class ModernaPowerUp : BasePowerUp
         PlayerController.instance.maxSpeed -= playerSpeedReduction;
 
         //starting powerup
+        StopAllCoroutines();
         base.ApplyPowerUp();
         StartCoroutine(AfterPowerUp());
     }

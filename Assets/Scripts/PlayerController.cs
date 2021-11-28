@@ -10,7 +10,7 @@ public class PlayerController: MonoBehaviour{
     //movement vars
     public static PlayerController instance;
     public float moveDist = 0.5f;
-    public float jumpStrength = 2f;
+    public float jumpStrength = 3f;
     public float speed = 10f;
     public float maxSpeed = 15f;
 
@@ -106,9 +106,12 @@ public class PlayerController: MonoBehaviour{
         rb.AddForce(CrossPlatformInputManager.GetAxis("Horizontal") * speed * Vector2.right, ForceMode2D.Impulse);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
 
+        //mitigates"air run" (uncomment if we want to apply the mitigation)
+        //rb.velocity = new Vector2(rb.velocity.x, Physics2D.gravity.y);
+
         //stopping motion if nothing is pressed
         if(CrossPlatformInputManager.GetAxis("Horizontal") == 0) {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.velocity = new Vector2(0, Physics2D.gravity.y);
         }
     }
 

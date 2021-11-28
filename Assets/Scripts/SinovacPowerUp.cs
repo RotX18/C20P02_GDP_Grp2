@@ -17,6 +17,7 @@ public class SinovacPowerUp: BasePowerUp {
         powerUpDuration = 15;
 
         //starting powerup
+        StopAllCoroutines();
         base.ApplyPowerUp();
         StartCoroutine(AfterPowerUp());
     }
