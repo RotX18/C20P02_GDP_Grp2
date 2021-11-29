@@ -18,7 +18,11 @@ public class ModernaPowerUp : BasePowerUp
     public override void ApplyPowerUp() {
         //setting powerup attributes (change duration and spd reduction as needed)
         PlayerController.instance.CurrentPower = PlayerController.PowerType.moderna;
+
+        //8s because 1 weeek = 2s, vax lasts 4 weeks before rejabbing
         powerUpDuration = 8;
+        PlayerController.instance.PowerUpDuration += powerUpDuration;
+
         playerSpeedReduction = 8;
 
         //saving original maxSpeed value
@@ -35,7 +39,7 @@ public class ModernaPowerUp : BasePowerUp
 
     IEnumerator AfterPowerUp() {
         //need this cause the code executes without waiting for ApplyPowerUp to finish
-        yield return new WaitForSeconds(powerUpDuration);
+        yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration += powerUpDuration);
 
         //returning player to unpowered state
         PlayerController.instance.maxSpeed = originalSpeed;

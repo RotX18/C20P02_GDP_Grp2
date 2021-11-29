@@ -16,7 +16,7 @@ public abstract class BasePowerUp : MonoBehaviour
 
     IEnumerator StartPowerUp(){
         //start of powerup
-        yield return new WaitForSeconds(powerUpDuration);
+        yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration);
 
         //when powerup ends
         PlayerController.instance.Powered = false;

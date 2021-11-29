@@ -35,6 +35,7 @@ public class PlayerController: MonoBehaviour{
     }
     protected bool _powered = false;
     protected PowerType _currentPower = PowerType.none;
+    protected float _powerUpDuration = 0;
 
     //properties
     public bool Grounded {
@@ -70,6 +71,15 @@ public class PlayerController: MonoBehaviour{
         }
         set{
             _currentPower = value;
+        }
+    }
+
+    public float PowerUpDuration{ 
+        get{
+            return _powerUpDuration;
+        }
+        set{
+            _powerUpDuration = value;
         }
     }
 

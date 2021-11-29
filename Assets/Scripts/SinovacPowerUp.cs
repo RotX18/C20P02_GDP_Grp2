@@ -14,7 +14,10 @@ public class SinovacPowerUp: BasePowerUp {
     public override void ApplyPowerUp() {
         //setting powerup attributes (change duration and spd reduction as needed)
         PlayerController.instance.CurrentPower = PlayerController.PowerType.sinovac;
-        powerUpDuration = 15;
+
+        //6s because 1 week = 2s, vax lasts 3 weeks before rejabbing (3-4 weeks, we assume the sooner)
+        powerUpDuration = 6;
+        PlayerController.instance.PowerUpDuration += powerUpDuration;
 
         //starting powerup
         StopAllCoroutines();
@@ -24,6 +27,6 @@ public class SinovacPowerUp: BasePowerUp {
 
     IEnumerator AfterPowerUp() {
         //need this cause the code executes without waiting for ApplyPowerUp to finish
-        yield return new WaitForSeconds(powerUpDuration);
+        yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration);
     }
 }

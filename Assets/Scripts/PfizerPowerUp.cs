@@ -20,7 +20,11 @@ public class PfizerPowerUp : BasePowerUp
     public override void ApplyPowerUp(){
         //setting powerup attributes (change duration and spd reduction as needed)
         PlayerController.instance.CurrentPower = PlayerController.PowerType.pfizer;
-        powerUpDuration = 10;
+
+        //8s because 1 weeek = 2s, vax lasts 4 weeks before rejabbing
+        powerUpDuration = 8;
+        PlayerController.instance.PowerUpDuration += powerUpDuration;
+
         playerSpeedReduction = 10;
 
         //saving original maxSpeed value
@@ -31,13 +35,14 @@ public class PfizerPowerUp : BasePowerUp
         PlayerController.instance.CannotJump = true;
 
         //starting powerup
+        StopAllCoroutines();
         base.ApplyPowerUp();
         StartCoroutine(AfterPowerUp());
     }
 
     IEnumerator AfterPowerUp(){
         //need this cause the code executes without waiting for ApplyPowerUp to finish
-        yield return new WaitForSeconds(powerUpDuration);
+        yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration);
 
         //returning player to unpowered state
         PlayerController.instance.maxSpeed = originalSpeed;

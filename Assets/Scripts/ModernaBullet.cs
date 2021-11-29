@@ -14,7 +14,7 @@ public class ModernaBullet : BaseBullet
         rb = GetComponent<Rigidbody2D>();
 
         //setting bullet attributes
-        bulletSpeed = 3;
+        bulletSpeed = 5;
         bulletDamage = 2;
         bulletTime = 3;
 
