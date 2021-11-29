@@ -3,18 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class PlayerController: MonoBehaviour {
+public class PlayerController: MonoBehaviour{
+    
     //CONTROLS THE PLAYER MOVEMENT VIA RIGIDBODY
-    //public vars
+    //PUBLIC
+    //movement vars
     public static PlayerController instance;
     public float moveDist = 0.5f;
-    public float jumpStrength = 1f;
-    public float speed = 5f;
-    public float maxSpeed = 10f;
+    public float jumpStrength = 3f;
+    public float speed = 10f;
+    public float maxSpeed = 15f;
 
-    //private vars
+    //attack vars
+    public float meleeRange = 1f;
+    public GameObject bulletPrefabPfizer;
+    public GameObject bulletPrefabModerna;
+    public GameObject bulletPrefabSinovac;
+
+    //PRIVATE
+    //movement vars
     private Rigidbody2D rb;
-    private bool _grounded = true;
+    protected bool _grounded = true;
+    protected bool _cannotJump = false;
+
+    //attack vars
+    public enum PowerType {
+        none,
+        pfizer,
+        moderna,
+        sinovac
+    }
+    protected bool _powered = false;
+    protected PowerType _currentPower = PowerType.none;
 
     //properties
     public bool Grounded {
@@ -23,6 +43,33 @@ public class PlayerController: MonoBehaviour {
         }
         set {
             _grounded = value;
+        }
+    }
+
+    public bool CannotJump{ 
+        get{
+            return _cannotJump;
+        }
+        set{
+            _cannotJump = value;
+        }
+    }
+
+    public bool Powered{ 
+        get{
+            return _powered;
+        }
+        set{
+            _powered = value;
+        }
+    }
+
+    public PowerType CurrentPower{ 
+        get{
+            return _currentPower;
+        }
+        set{
+            _currentPower = value;
         }
     }
 
@@ -43,9 +90,14 @@ public class PlayerController: MonoBehaviour {
 
     private void Update() {
         //vertical, jumping
-        if(CrossPlatformInputManager.GetButtonDown("Jump") && _grounded == true) {
+        if(CrossPlatformInputManager.GetButtonDown("Jump") && _grounded && !_cannotJump) {
             _grounded = false;
             rb.MovePosition(new Vector2(transform.position.x, transform.position.y + jumpStrength));
+        }
+
+        //attack
+        if(CrossPlatformInputManager.GetButtonDown("Attack")){
+            Attack();
         }
     }
 
@@ -54,9 +106,39 @@ public class PlayerController: MonoBehaviour {
         rb.AddForce(CrossPlatformInputManager.GetAxis("Horizontal") * speed * Vector2.right, ForceMode2D.Impulse);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
 
+        //mitigates"air run" (uncomment if we want to apply the mitigation)
+        //rb.velocity = new Vector2(rb.velocity.x, Physics2D.gravity.y);
+
         //stopping motion if nothing is pressed
         if(CrossPlatformInputManager.GetAxis("Horizontal") == 0) {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.velocity = new Vector2(0, Physics2D.gravity.y);
+        }
+    }
+
+    private void Attack(){
+        if(_powered == false){ //melee
+            //cast ray to meleeRange units infront of the player
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), new Vector2(transform.position.x + meleeRange, transform.position.y));
+
+            //PLAY MELEE ATTACK ANIM
+            
+            if(hit.collider.CompareTag("Enemy")) { //if ray hits enemy
+                Destroy(hit.collider.gameObject);
+            }
+        }
+        else if(_powered == true){ 
+            switch(_currentPower){
+                //instantiating bullet prefab based on type of vax
+                case PowerType.pfizer:
+                    Instantiate(bulletPrefabPfizer, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    break;
+                case PowerType.moderna:
+                    Instantiate(bulletPrefabModerna, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    break;
+                case PowerType.sinovac:
+                    Instantiate(bulletPrefabSinovac, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    break;
+            }
         }
     }
 }
