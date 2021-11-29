@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
 
     public Text timerText;
+    public Text scoreText;
+    private float score = 1;
     private float seconds;
     private int minute;
     private int hour;
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         TimerUI();
+        if (Input.GetKeyDown("space"))
+        {
+            scoreText.text = score.ToString("0") + "/10";
+        }
     }
     void TimerUI()
     {
