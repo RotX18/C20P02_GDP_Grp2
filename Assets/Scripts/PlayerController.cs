@@ -107,7 +107,7 @@ public class PlayerController: MonoBehaviour{
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
 
         //mitigates"air run" (uncomment if we want to apply the mitigation)
-        //rb.velocity = new Vector2(rb.velocity.x, Physics2D.gravity.y);
+        rb.velocity = new Vector2(rb.velocity.x, Physics2D.gravity.y);
 
         //stopping motion if nothing is pressed
         if(CrossPlatformInputManager.GetAxis("Horizontal") == 0) {
