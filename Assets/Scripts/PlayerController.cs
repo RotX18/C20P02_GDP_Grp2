@@ -19,20 +19,23 @@ public class PlayerController: MonoBehaviour{
     public GameObject bulletPrefabPfizer;
     public GameObject bulletPrefabModerna;
     public GameObject bulletPrefabSinovac;
-
-    //PRIVATE
-    //movement vars
-    private Rigidbody2D rb;
-    protected bool _grounded = true;
-    protected bool _cannotJump = false;
-
-    //attack vars
     public enum PowerType {
         none,
         pfizer,
         moderna,
         sinovac
     }
+
+    //PRIVATE
+    //movement vars
+    private Rigidbody2D rb;
+
+    //PROTECTED
+    //movement vars
+    protected bool _grounded = true;
+    protected bool _cannotJump = false;
+
+    //attack vars
     protected bool _powered = false;
     protected PowerType _currentPower = PowerType.none;
     protected float _powerUpDuration = 0;
