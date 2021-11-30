@@ -7,8 +7,9 @@ public class PlayerController: MonoBehaviour{
     
     //CONTROLS THE PLAYER MOVEMENT VIA RIGIDBODY
     //PUBLIC
-    //movement vars
     public static PlayerController instance;
+
+    //movement vars
     public float moveDist = 0.5f;
     public float jumpStrength = 3f;
     public float speed = 10f;
@@ -32,6 +33,7 @@ public class PlayerController: MonoBehaviour{
 
     //PROTECTED
     //movement vars
+    protected bool _facingRight = true;
     protected bool _grounded = true;
     protected bool _cannotJump = false;
 
@@ -41,6 +43,15 @@ public class PlayerController: MonoBehaviour{
     protected float _powerUpDuration = 0;
 
     //properties
+    public bool FacingRight{ 
+        get{
+            return _facingRight;
+        }
+        set{
+            _facingRight = value;
+        }
+    }
+
     public bool Grounded {
         get {
             return _grounded;
@@ -111,6 +122,16 @@ public class PlayerController: MonoBehaviour{
         //attack
         if(CrossPlatformInputManager.GetButtonDown("Attack")){
             Attack();
+        }
+
+        //facing
+        if(gameObject.transform.localScale.x <= 0){
+            //facing left
+            _facingRight = false;
+        }
+        if(gameObject.transform.localScale.x >= 0) {
+            //facing right
+            _facingRight = true;
         }
     }
 

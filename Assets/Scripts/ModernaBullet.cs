@@ -4,26 +4,14 @@ using UnityEngine;
 
 public class ModernaBullet : BaseBullet
 {
-    //private vars
-    private Rigidbody2D rb;
+    private ConstantForce2D cf;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        //getting rigidbody2d component
-        rb = GetComponent<Rigidbody2D>();
+    void Start(){
+        cf = GetComponent<ConstantForce2D>();
+        cf.force = new Vector2(bulletSpeed * direction, 0);
 
-        //setting bullet attributes
-        bulletSpeed = 5;
+        //setting bulletDamage attribute
         bulletDamage = 2;
-        bulletTime = 3;
-
-        Destroy(gameObject, bulletTime);
-    }
-
-    void FixedUpdate()
-    {
-        //making the bullet travel in a straight line
-        rb.velocity = new Vector2(bulletSpeed, 0);
     }
 }
