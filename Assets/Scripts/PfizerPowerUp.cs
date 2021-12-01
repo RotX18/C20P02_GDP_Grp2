@@ -25,7 +25,7 @@ public class PfizerPowerUp : BasePowerUp
         powerUpDuration = 8;
         PlayerController.instance.PowerUpDuration += powerUpDuration;
 
-        playerSpeedReduction = 10;
+        playerSpeedReduction = 7;
 
         //saving original maxSpeed value
         originalSpeed = PlayerController.instance.maxSpeed;

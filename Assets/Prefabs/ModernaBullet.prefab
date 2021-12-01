@@ -118,10 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa52a9b6cee11643bb024718b6e9ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
-  bulletTime: 0
   bulletDamage: 0
-  objPlayer: {fileID: 5713755347556594741, guid: 29e4874aa1424774cac80c1ab7070e2c, type: 3}
+  direction: 1
+  bulletSpeed: 5
 --- !u!58 &7840025325481095168
 CircleCollider2D:
   m_ObjectHideFlags: 0

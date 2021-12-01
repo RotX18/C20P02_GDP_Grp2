@@ -41,8 +41,10 @@ public class PlayerController: MonoBehaviour{
     protected bool _powered = false;
     protected PowerType _currentPower = PowerType.none;
     protected float _powerUpDuration = 0;
+    protected int _health = 3;
 
-    //properties
+    //PROPERTIES
+    //movement properties
     public bool FacingRight{ 
         get{
             return _facingRight;
@@ -70,6 +72,7 @@ public class PlayerController: MonoBehaviour{
         }
     }
 
+    //attack properties
     public bool Powered{ 
         get{
             return _powered;
@@ -94,6 +97,15 @@ public class PlayerController: MonoBehaviour{
         }
         set{
             _powerUpDuration = value;
+        }
+    }
+
+    public int Health{ 
+        get{
+            return _health;
+        }
+        set{
+            _health = value;
         }
     }
 
@@ -141,7 +153,7 @@ public class PlayerController: MonoBehaviour{
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
 
         //mitigates"air run" (uncomment if we want to apply the mitigation)
-        //rb.velocity = new Vector2(rb.velocity.x, Physics2D.gravity.y);
+        rb.velocity = new Vector2(rb.velocity.x, Physics2D.gravity.y);
 
         //stopping motion if nothing is pressed
         if(CrossPlatformInputManager.GetAxis("Horizontal") == 0) {
@@ -164,15 +176,36 @@ public class PlayerController: MonoBehaviour{
             switch(_currentPower){
                 //instantiating bullet prefab based on type of vax
                 case PowerType.pfizer:
-                    Instantiate(bulletPrefabPfizer, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    if(_facingRight){ 
+                        Instantiate(bulletPrefabPfizer, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    }
+                    else{
+                        Instantiate(bulletPrefabPfizer, new Vector2(transform.position.x - 1, transform.position.y), Quaternion.identity);
+                    }
                     break;
                 case PowerType.moderna:
-                    Instantiate(bulletPrefabModerna, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    if(_facingRight) {
+                        Instantiate(bulletPrefabModerna, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    }
+                    else{
+                        Instantiate(bulletPrefabModerna, new Vector2(transform.position.x - 1, transform.position.y), Quaternion.identity);
+                    }
                     break;
                 case PowerType.sinovac:
-                    Instantiate(bulletPrefabSinovac, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    if(_facingRight) {
+                        Instantiate(bulletPrefabSinovac, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    }
+                    else{
+                        Instantiate(bulletPrefabSinovac, new Vector2(transform.position.x - 1, transform.position.y), Quaternion.identity);
+                    }
                     break;
             }
         }
+    }
+
+    public void GameOver(){
+        //GameOver method, add code for ui later
+        Debug.Log("GAME OVER!");
+        Time.timeScale = 0;
     }
 }

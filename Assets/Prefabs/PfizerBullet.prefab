@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8977618755000721497}
   - component: {fileID: 8977618755000721502}
   - component: {fileID: 5991506835727864948}
-  - component: {fileID: -1110769229388501986}
   m_Layer: 0
   m_Name: PfizerBullet
   m_TagString: Untagged
@@ -100,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDamage: 0
   direction: 1
-  bulletSpeed: 0
+  bulletSpeed: 5
 --- !u!50 &8977618755000721502
 Rigidbody2D:
   serializedVersion: 4
@@ -138,14 +137,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!247 &-1110769229388501986
-ConstantForce2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8977618755000721493}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 0}
-  m_RelativeForce: {x: 0, y: 0}
-  m_Torque: 0

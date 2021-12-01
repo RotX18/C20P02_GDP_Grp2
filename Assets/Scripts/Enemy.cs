@@ -51,4 +51,19 @@ public class Enemy : MonoBehaviour
         rb.AddForce(new Vector2(moveStrength * direction, 0), ForceMode2D.Impulse);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity,maxSpeed);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.CompareTag("Player")){
+            //subtracting player health
+            PlayerController.instance.Health--;
+            Debug.Log($"CURRENT HEALTH: {PlayerController.instance.Health}");
+
+            if(PlayerController.instance.Health <= 0){
+                //calling GameOver method if player has no more health
+                PlayerController.instance.GameOver();
+            }
+
+            Destroy(gameObject);
+        }
+    }
 }
