@@ -44,4 +44,18 @@ public class ModernaPowerUp : BasePowerUp
         //returning player to unpowered state
         PlayerController.instance.maxSpeed = originalSpeed;
     }
+    public void Update()
+    {
+        if (powerUpDuration < 0)
+        {
+            durationText.gameObject.SetActive(false);
+        }
+        else
+        {
+
+            powerUpDuration -= Time.deltaTime;
+            durationText.text = powerUpDuration.ToString("00");
+            durationText.gameObject.SetActive(true);
+        }
+    }
 }

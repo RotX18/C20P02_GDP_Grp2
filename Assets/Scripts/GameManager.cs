@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
 {
 
     public Text timerText;
+    public Text durationText;
     private float seconds;
     private int minute;
-    private int hour;
+    private BasePowerUp score;
+    private float puDuration;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         TimerUI();
+
     }
     void TimerUI()
     {
@@ -39,5 +43,8 @@ public class GameManager : MonoBehaviour
     void PowerUpUi()
     {
 
+        
+        
+        
     }
 }

@@ -51,4 +51,18 @@ public class PfizerPowerUp : BasePowerUp
         //reenabling jump button
         btnJump.interactable = true;
     }
+    public void Update()
+    {
+        if (powerUpDuration < 0)
+        {
+            durationText.gameObject.SetActive(false);
+        }
+        else
+        {
+
+            powerUpDuration -= Time.deltaTime;
+            durationText.text = powerUpDuration.ToString("00");
+            durationText.gameObject.SetActive(true);
+        }
+    }
 }

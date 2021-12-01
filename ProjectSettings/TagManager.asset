@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Options
+  - Destory
   layers:
   - Default
   - TransparentFX

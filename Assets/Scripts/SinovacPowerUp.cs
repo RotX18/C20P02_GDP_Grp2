@@ -10,7 +10,7 @@ public class SinovacPowerUp: BasePowerUp {
             ApplyPowerUp();
         }
     }
-
+    
     public override void ApplyPowerUp() {
         //setting powerup attributes (change duration and spd reduction as needed)
         PlayerController.instance.CurrentPower = PlayerController.PowerType.sinovac;
@@ -28,5 +28,19 @@ public class SinovacPowerUp: BasePowerUp {
     IEnumerator AfterPowerUp() {
         //need this cause the code executes without waiting for ApplyPowerUp to finish
         yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration);
+    }
+    public void Update()
+    {
+        if (powerUpDuration < 0)
+        {
+            durationText.gameObject.SetActive(false);
+        }
+        else
+        {
+
+            powerUpDuration -= Time.deltaTime;
+            durationText.text = powerUpDuration.ToString("00");
+            durationText.gameObject.SetActive(true);
+        }
     }
 }

@@ -1082,7 +1082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &334589749
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3009,7 +3009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1112762875
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3568,7 +3568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230437757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.75, y: 14.19, z: 2.3417687}
+  m_LocalPosition: {x: -8.2, y: 14.19, z: 2.3417687}
   m_LocalScale: {x: 8.657166, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 135011420}
@@ -4155,7 +4155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1312923686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4463,6 +4463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1013898813}
+  durationText: {fileID: 1538041334}
 --- !u!1001 &1461372992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4474,6 +4475,10 @@ PrefabInstance:
       propertyPath: btnJump
       value: 
       objectReference: {fileID: 1071684344}
+    - target: {fileID: 609069070468018944, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: durationText
+      value: 
+      objectReference: {fileID: 1538041334}
     - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4522,6 +4527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PfizerPowerUp
       objectReference: {fileID: 0}
+    - target: {fileID: 609069070468018959, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
+      propertyPath: m_TagString
+      value: Destory
+      objectReference: {fileID: 0}
     - target: {fileID: 8336811076649719761, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -4545,7 +4554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1481470618
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4694,7 +4703,7 @@ GameObject:
   - component: {fileID: 1537029548}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Destory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4773,7 +4782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1538041333
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5772,7 +5781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1833228961
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6598,6 +6607,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModernaPowerUp
       objectReference: {fileID: 0}
+    - target: {fileID: 7661365586855657509, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
+      propertyPath: m_TagString
+      value: Destory
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661365586855657511, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
+      propertyPath: durationText
+      value: 
+      objectReference: {fileID: 1538041334}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
 --- !u!1001 &7763164619306095891
@@ -6651,6 +6668,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7763164619858262237, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
+      propertyPath: durationText
+      value: 
+      objectReference: {fileID: 1538041334}
     - target: {fileID: 7763164619858262239, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
       propertyPath: m_Name
       value: SinovacPowerUp
