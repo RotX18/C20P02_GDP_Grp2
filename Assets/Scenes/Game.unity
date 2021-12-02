@@ -6607,10 +6607,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModernaPowerUp
       objectReference: {fileID: 0}
-    - target: {fileID: 7661365586855657509, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
-      propertyPath: m_TagString
-      value: Destory
-      objectReference: {fileID: 0}
     - target: {fileID: 7661365586855657511, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: btnJump
       value: 
