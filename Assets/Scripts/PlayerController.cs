@@ -145,12 +145,18 @@ public class PlayerController: MonoBehaviour{
             //facing right
             _facingRight = true;
         }
+
+        //-1 for every second
+        if(_powerUpDuration > 0){
+            _powerUpDuration -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate() {
         //horizontal axis
         rb.AddForce(CrossPlatformInputManager.GetAxis("Horizontal") * speed * Vector2.right, ForceMode2D.Impulse);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+        Debug.Log($"max speed {maxSpeed}, speed {speed}");
 
         //mitigates"air run" (uncomment if we want to apply the mitigation)
         rb.velocity = new Vector2(rb.velocity.x, Physics2D.gravity.y);

@@ -25,4 +25,14 @@ public abstract class BasePowerUp : MonoBehaviour
         PlayerController.instance.CurrentPower = PlayerController.PowerType.none;
         Destroy(gameObject, PlayerController.instance.PowerUpDuration);
     }
+
+    public virtual void Update(){ 
+        if(PlayerController.instance.PowerUpDuration <= 0){
+            durationText.gameObject.SetActive(false);
+        }
+        else if (PlayerController.instance.PowerUpDuration > 0){
+            durationText.gameObject.SetActive(true);
+            durationText.text = PlayerController.instance.PowerUpDuration.ToString("00");
+        }
+    }
 }

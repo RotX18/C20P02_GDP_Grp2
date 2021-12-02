@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ModernaPowerUp : BasePowerUp
 {
+    //public vars
+    public Button btnJump;
+
     //private vars
     private float originalSpeed;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.CompareTag("Player")) {
+            PlayerController.instance.CannotJump = false;
+            btnJump.interactable = true;
+
             //show that the player has "collected" by making it disappear from view
             gameObject.transform.SetPositionAndRotation(new Vector2(100, 100), Quaternion.identity);
             ApplyPowerUp();
@@ -29,7 +36,12 @@ public class ModernaPowerUp : BasePowerUp
         originalSpeed = PlayerController.instance.maxSpeed;
 
         //affecting player's mobility
-        PlayerController.instance.maxSpeed -= playerSpeedReduction;
+        if(PlayerController.instance.maxSpeed - playerSpeedReduction > 3) {
+            PlayerController.instance.maxSpeed -= playerSpeedReduction;
+        }
+        else {
+            PlayerController.instance.maxSpeed = 3;
+        }
 
         //starting powerup
         StopAllCoroutines();
@@ -39,23 +51,13 @@ public class ModernaPowerUp : BasePowerUp
 
     IEnumerator AfterPowerUp() {
         //need this cause the code executes without waiting for ApplyPowerUp to finish
-        yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration += powerUpDuration);
+        yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration);
 
         //returning player to unpowered state
         PlayerController.instance.maxSpeed = originalSpeed;
     }
-    public void Update()
-    {
-        if (powerUpDuration < 0)
-        {
-            durationText.gameObject.SetActive(false);
-        }
-        else
-        {
 
-            powerUpDuration -= Time.deltaTime;
-            durationText.text = powerUpDuration.ToString("00");
-            durationText.gameObject.SetActive(true);
-        }
+    public override void Update() {
+        base.Update();
     }
 }

@@ -26,4 +26,5 @@ public class PfizerBullet : BaseBullet
         bulletDamage = 3;
         base.Start();
     }
+
 }

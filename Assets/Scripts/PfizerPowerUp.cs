@@ -31,7 +31,13 @@ public class PfizerPowerUp : BasePowerUp
         originalSpeed = PlayerController.instance.maxSpeed;
 
         //affecting player's mobility
-        PlayerController.instance.maxSpeed -= playerSpeedReduction;
+        if(PlayerController.instance.maxSpeed - playerSpeedReduction > 3){
+            PlayerController.instance.maxSpeed -= playerSpeedReduction;
+        }
+        else {
+            PlayerController.instance.maxSpeed = 3;
+        }
+
         PlayerController.instance.CannotJump = true;
 
         //starting powerup
@@ -51,18 +57,9 @@ public class PfizerPowerUp : BasePowerUp
         //reenabling jump button
         btnJump.interactable = true;
     }
-    public void Update()
-    {
-        if (powerUpDuration < 0)
-        {
-            durationText.gameObject.SetActive(false);
-        }
-        else
-        {
 
-            powerUpDuration -= Time.deltaTime;
-            durationText.text = powerUpDuration.ToString("00");
-            durationText.gameObject.SetActive(true);
-        }
+    public override void Update()
+    {
+        base.Update();
     }
 }

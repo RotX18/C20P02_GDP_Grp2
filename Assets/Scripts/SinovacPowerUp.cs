@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SinovacPowerUp: BasePowerUp {
+
+    //public vars
+    public Button btnJump;
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.CompareTag("Player")) {
+            PlayerController.instance.CannotJump = false;
+            btnJump.interactable = true;
+
             //show that the player has "collected" by making it disappear from view
             gameObject.transform.SetPositionAndRotation(new Vector2(100, 100), Quaternion.identity);
             ApplyPowerUp();
@@ -29,18 +37,8 @@ public class SinovacPowerUp: BasePowerUp {
         //need this cause the code executes without waiting for ApplyPowerUp to finish
         yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration);
     }
-    public void Update()
-    {
-        if (powerUpDuration < 0)
-        {
-            durationText.gameObject.SetActive(false);
-        }
-        else
-        {
 
-            powerUpDuration -= Time.deltaTime;
-            durationText.text = powerUpDuration.ToString("00");
-            durationText.gameObject.SetActive(true);
-        }
+    public override void Update() {
+        base.Update();
     }
 }

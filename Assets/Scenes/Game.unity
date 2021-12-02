@@ -6612,6 +6612,10 @@ PrefabInstance:
       value: Destory
       objectReference: {fileID: 0}
     - target: {fileID: 7661365586855657511, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
+      propertyPath: btnJump
+      value: 
+      objectReference: {fileID: 1071684344}
+    - target: {fileID: 7661365586855657511, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: durationText
       value: 
       objectReference: {fileID: 1538041334}
@@ -6668,6 +6672,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7763164619858262237, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
+      propertyPath: btnJump
+      value: 
+      objectReference: {fileID: 1071684344}
     - target: {fileID: 7763164619858262237, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
       propertyPath: durationText
       value: 
