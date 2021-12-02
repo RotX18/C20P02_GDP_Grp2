@@ -8,7 +8,7 @@ public class SinovacBullet : BaseBullet
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
-    void Start(){
+    public override void Start(){
         //setting the direction based on where the player is facing
         if(PlayerController.instance.FacingRight) {
             //facing right
@@ -24,5 +24,6 @@ public class SinovacBullet : BaseBullet
 
         //setting bullet attributes
         bulletDamage = 1;
+        base.Start();
     }
 }

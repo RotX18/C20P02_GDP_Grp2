@@ -23,6 +23,6 @@ public abstract class BasePowerUp : MonoBehaviour
         //when powerup ends
         PlayerController.instance.Powered = false;
         PlayerController.instance.CurrentPower = PlayerController.PowerType.none;
-        Destroy(gameObject);
+        Destroy(gameObject, PlayerController.instance.PowerUpDuration);
     }
 }

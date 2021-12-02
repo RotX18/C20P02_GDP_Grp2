@@ -13,7 +13,7 @@ public abstract class BaseBullet : MonoBehaviour
     //private vars
     private int bulletTime = 3;
 
-    private void Start() {
+    public virtual void Start() {
         Destroy(gameObject, bulletTime);
     }
 
