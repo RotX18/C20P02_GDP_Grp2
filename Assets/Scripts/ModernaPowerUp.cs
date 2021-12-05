@@ -27,8 +27,6 @@ public class ModernaPowerUp : BasePowerUp
                 {
                     Destroy(i);
                 }
-
-
             }
         }
     }
@@ -41,7 +39,7 @@ public class ModernaPowerUp : BasePowerUp
         powerUpDuration = 8;
         PlayerController.instance.PowerUpDuration += powerUpDuration;
 
-        playerSpeedReduction = 7;
+        playerSpeedReduction = 5;
 
         //saving original maxSpeed value
         originalSpeed = PlayerController.instance.maxSpeed;

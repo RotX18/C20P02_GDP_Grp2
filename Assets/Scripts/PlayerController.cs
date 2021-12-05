@@ -39,14 +39,13 @@ public class PlayerController: MonoBehaviour{
 
     //attack vars
     protected bool _powered = false;
-    protected PowerType _currentPower = PowerType.none;
+    protected PowerType _currentPower = PowerType.pfizer;
     protected float _powerUpDuration = 0;
     protected int _health = 3;
 
     //ken's test
     GameManager kills;
 
-    ///
     //PROPERTIES
     //movement properties
     public bool FacingRight{ 
@@ -173,15 +172,29 @@ public class PlayerController: MonoBehaviour{
     private void Attack(){
         if(_powered == false){ //melee
             //cast ray to meleeRange units infront of the player
-            RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), new Vector2(transform.position.x + meleeRange, transform.position.y));
+            RaycastHit2D hit;
+
+            //casting ray based on where the player is facing
+            if(_facingRight){
+                //if facing right, cast right
+                hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), new Vector2(transform.position.x + meleeRange, transform.position.y));
+                if(hit.collider.CompareTag("Enemy")) { 
+                    //if ray hits enemy
+                    Destroy(hit.collider.gameObject);
+                    GameManager.i.totalKills++;
+                }
+            }
+            else if (!_facingRight){
+                //if not facing right (facing left), cast left
+                hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), new Vector2(transform.position.x - meleeRange, transform.position.y));
+                if(hit.collider.CompareTag("Enemy")) {
+                    //if ray hits enemy
+                    Destroy(hit.collider.gameObject);
+                    GameManager.i.totalKills++;
+                }
+            }
 
             //PLAY MELEE ATTACK ANIM
-            
-            if(hit.collider.CompareTag("Enemy")) { //if ray hits enemy
-                
-                Destroy(hit.collider.gameObject);
-                GameManager.i.totalKills++;
-            }
         }
         else if(_powered == true){ 
             switch(_currentPower){
