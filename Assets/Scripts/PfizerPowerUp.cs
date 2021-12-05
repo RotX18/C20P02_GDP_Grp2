@@ -18,7 +18,7 @@ public class PfizerPowerUp : BasePowerUp
             GameObject[] des = GameObject.FindGameObjectsWithTag("Destory");
             foreach (GameObject i in des)
             {
-                if (i != this.gameObject)
+                if (i != this.gameObject && i != null)
                 {
                     Destroy(i);
                 }

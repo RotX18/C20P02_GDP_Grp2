@@ -20,7 +20,7 @@ public class SinovacPowerUp: BasePowerUp {
             GameObject[] des = GameObject.FindGameObjectsWithTag("Destory");
             foreach (GameObject i in des)
             {
-                if(i != this.gameObject)
+                if(i != this.gameObject && i != null && i.gameObject.name != this.gameObject.name)
                 {
                     Destroy(i);
                 }
