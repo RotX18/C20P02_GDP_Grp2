@@ -10,7 +10,6 @@ public abstract class BaseBullet : MonoBehaviour
     [HideInInspector] public int bulletDamage;
     [HideInInspector] public int direction = 1;
     [HideInInspector] public float bulletSpeed = 3;
-    public float kills;
 
     //private vars
     private int bulletTime = 3;
@@ -26,11 +25,10 @@ public abstract class BaseBullet : MonoBehaviour
 
             if(collision.gameObject.GetComponent<Enemy>().Health <= 0){
                 //killing (destroying) enemy object if its health <= 0
-                kills++;
+                GameManager.i.totalKills++;
                 Destroy(collision.gameObject);
             }
             Destroy(gameObject);
-            kills++;
         }
     }
 }

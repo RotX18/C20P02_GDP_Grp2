@@ -8,33 +8,38 @@ using System.Threading;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager i = null;
 
     public Text timerText;
     public Text scoring;
     private float seconds;
     private int minute;
-    private float puDuration;
-    BaseBullet kills;
-    float totalKills = 0;
+    public float totalKills;
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        if(i == null)
+        {
+            i = this;
+        }
+        else if (i != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         TimerUI();
-        
+        tKills();
 
     }
     void tKills()
     {
-        totalKills = kills.kills;
-        scoring.text = totalKills.ToString("00") + "/00";
+        scoring.text = totalKills.ToString("00") + "/12";
     }
     void TimerUI()
     {

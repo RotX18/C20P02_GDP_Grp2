@@ -43,6 +43,10 @@ public class PlayerController: MonoBehaviour{
     protected float _powerUpDuration = 0;
     protected int _health = 3;
 
+    //ken's test
+    GameManager kills;
+
+    ///
     //PROPERTIES
     //movement properties
     public bool FacingRight{ 
@@ -174,7 +178,9 @@ public class PlayerController: MonoBehaviour{
             //PLAY MELEE ATTACK ANIM
             
             if(hit.collider.CompareTag("Enemy")) { //if ray hits enemy
+                
                 Destroy(hit.collider.gameObject);
+                GameManager.i.totalKills++;
             }
         }
         else if(_powered == true){ 

@@ -1077,7 +1077,7 @@ GameObject:
   - component: {fileID: 334589751}
   - component: {fileID: 334589750}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: health3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3016,12 +3016,12 @@ GameObject:
   - component: {fileID: 1112762877}
   - component: {fileID: 1112762876}
   m_Layer: 5
-  m_Name: Image
+  m_Name: enemy_img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1112762875
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4166,7 +4166,7 @@ GameObject:
   - component: {fileID: 1312923688}
   - component: {fileID: 1312923687}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: health2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4552,6 +4552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1013898813}
   scoring: {fileID: 1318010685}
+  totalKills: 0
 --- !u!1001 &1461372992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4637,7 +4638,7 @@ GameObject:
   - component: {fileID: 1481470620}
   - component: {fileID: 1481470619}
   m_Layer: 5
-  m_Name: Image
+  m_Name: health1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

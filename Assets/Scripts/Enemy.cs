@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     //protected vars
     protected float _health = 3;
 
+    //ken's test
+    GameManager kills;
+
     //properties
     public float Health{ 
         get{
@@ -62,7 +65,7 @@ public class Enemy : MonoBehaviour
                 //calling GameOver method if player has no more health
                 PlayerController.instance.GameOver();
             }
-
+            GameManager.i.totalKills++;
             Destroy(gameObject);
         }
     }
