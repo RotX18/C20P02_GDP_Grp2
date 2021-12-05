@@ -10,11 +10,12 @@ public class GameManager : MonoBehaviour
 {
 
     public Text timerText;
-    public Text durationText;
+    public Text scoring;
     private float seconds;
     private int minute;
-    private BasePowerUp score;
     private float puDuration;
+    BaseBullet kills;
+    float totalKills = 0;
     
 
     // Start is called before the first frame update
@@ -27,7 +28,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         TimerUI();
+        
 
+    }
+    void tKills()
+    {
+        totalKills = kills.kills;
+        scoring.text = totalKills.ToString("00") + "/00";
     }
     void TimerUI()
     {

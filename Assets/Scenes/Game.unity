@@ -4299,7 +4299,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0/10
+  m_Text: 00/12
 --- !u!222 &1318010686
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4551,7 +4551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1013898813}
-  durationText: {fileID: 1538041334}
+  scoring: {fileID: 1318010685}
 --- !u!1001 &1461372992
 PrefabInstance:
   m_ObjectHideFlags: 0
