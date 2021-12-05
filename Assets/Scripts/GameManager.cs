@@ -40,11 +40,4 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    void PowerUpUi()
-    {
-
-        
-        
-        
-    }
 }

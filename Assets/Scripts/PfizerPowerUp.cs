@@ -14,6 +14,17 @@ public class PfizerPowerUp : BasePowerUp
             gameObject.transform.SetPositionAndRotation(new Vector2(100, 100), Quaternion.identity);
             btnJump.interactable = false;
             ApplyPowerUp();
+
+            GameObject[] des = GameObject.FindGameObjectsWithTag("Destory");
+            foreach (GameObject i in des)
+            {
+                if (i != this.gameObject)
+                {
+                    Destroy(i);
+                }
+
+
+            }
         }
     }
 

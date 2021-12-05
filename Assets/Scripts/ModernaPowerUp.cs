@@ -19,6 +19,17 @@ public class ModernaPowerUp : BasePowerUp
             //show that the player has "collected" by making it disappear from view
             gameObject.transform.SetPositionAndRotation(new Vector2(100, 100), Quaternion.identity);
             ApplyPowerUp();
+
+            GameObject[] des = GameObject.FindGameObjectsWithTag("Destory");
+            foreach (GameObject i in des)
+            {
+                if (i != this.gameObject)
+                {
+                    Destroy(i);
+                }
+
+
+            }
         }
     }
 

@@ -3567,7 +3567,7 @@ GameObject:
   - component: {fileID: 1230437759}
   m_Layer: 0
   m_Name: Platform (4)
-  m_TagString: Untagged
+  m_TagString: Destory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4499,7 +4499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 609069070468018959, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
       propertyPath: m_TagString
-      value: Destory
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8336811076649719761, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
       propertyPath: m_IsTrigger
@@ -6639,6 +6639,10 @@ PrefabInstance:
     - target: {fileID: 7763164619858262239, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
       propertyPath: m_Name
       value: SinovacPowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763164619858262239, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
+      propertyPath: m_TagString
+      value: Destory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
