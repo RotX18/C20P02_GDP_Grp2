@@ -8,22 +8,22 @@ public class ModernaBullet : BaseBullet
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        //getting rigidbody2d component
+    public override void Start(){
+        //setting the direction based on where the player is facing
+        if(PlayerController.instance.FacingRight) {
+            //facing right
+            direction = 1;
+        }
+        if(!PlayerController.instance.FacingRight) {
+            //facing left
+            direction = -1;
+        }
+
         rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector2(bulletSpeed * direction, 0), ForceMode2D.Impulse);
 
-        //setting bullet attributes
-        bulletSpeed = 3;
+        //setting bulletDamage attribute
         bulletDamage = 2;
-        bulletTime = 3;
-
-        Destroy(gameObject, bulletTime);
-    }
-
-    void FixedUpdate()
-    {
-        //making the bullet travel in a straight line
-        rb.velocity = new Vector2(bulletSpeed, 0);
+        base.Start();
     }
 }
