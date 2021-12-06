@@ -61,6 +61,11 @@ public class AnimScript : MonoBehaviour
                 anim.SetBool("Sinovac", true);
                 break;
         }
+
+        if (PlayerController.instance.Health == 0)
+        {
+            anim.SetBool("Die", true);  
+        }
     }
 
     private void LateUpdate()
