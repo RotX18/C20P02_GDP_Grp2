@@ -98,8 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpDuration: 0
   playerSpeedReduction: 0
-  durationText: {fileID: 0}
-  btnJump: {fileID: 0}
 --- !u!70 &7763164619858262238
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
