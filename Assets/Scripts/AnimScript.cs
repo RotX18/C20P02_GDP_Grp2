@@ -9,7 +9,6 @@ public class AnimScript : MonoBehaviour
 
     bool facingRight = true;
     Animator anim;
-    PlayerController.PowerType _currentPower;
 
     // Start is called before the first frame update
     void Start()
@@ -22,19 +21,15 @@ public class AnimScript : MonoBehaviour
     {
         float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
         anim.SetFloat("Speed", Mathf.Abs(h));
-        _currentPower = PlayerController.instance.CurrentPower;
+
 
         if(CrossPlatformInputManager.GetButton("Jump"))
         {
             anim.SetBool("Jump", true);
         }
+        
 
-        if (CrossPlatformInputManager.GetButton("Attack"))
-        {
-            anim.SetBool("Punch", true);
-        }
-
-        if (h > 0 && !facingRight)
+        if(h > 0 && !facingRight)
         {
             Flip();
         }
@@ -43,24 +38,6 @@ public class AnimScript : MonoBehaviour
         {
             Flip();
         }
-
-        switch (_currentPower) {
-            case PlayerController.PowerType.none:
-                anim.SetBool("Moderna",false);
-                anim.SetBool("Pfizer",false);
-                anim.SetBool("Sinovac",false);
-                break;
-            case PlayerController.PowerType.moderna:
-                anim.SetBool("Moderna", true);
-                break;
-            case PlayerController.PowerType.pfizer:
-                anim.SetBool("Jump", false);
-                anim.SetBool("Pfizer", true);
-                break;
-            case PlayerController.PowerType.sinovac:
-                anim.SetBool("Sinovac", true);
-                break;
-        }
     }
 
     private void LateUpdate()
@@ -68,10 +45,6 @@ public class AnimScript : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonUp("Jump"))
         {
             anim.SetBool("Jump", false);
-        }
-        if (CrossPlatformInputManager.GetButtonUp("Attack"))
-        {
-            anim.SetBool("Punch", false);
         }
     }
 

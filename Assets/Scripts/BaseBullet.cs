@@ -2,20 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
 public abstract class BaseBullet : MonoBehaviour
 {
-    //vars
-    [HideInInspector] public float bulletSpeed;
+    //public vars
     [HideInInspector] public int bulletDamage;
-    [HideInInspector] public int bulletTime;
+    [HideInInspector] public int direction = 1;
+    [HideInInspector] public float bulletSpeed = 3;
 
-    public virtual void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.CompareTag("Enemy")){
+    //private vars
+    private int bulletTime = 3;
 
-            //SUBTRACT HEALTH FROM THE ENEMY HERE
-            //EDIT SO THAT THE ACTUAL CODE HAS AN IF TO CHECK ENEMY HP BEFORE DESTROYING
-            Destroy(collision.gameObject);
+    public virtual void Start() {
+        Destroy(gameObject, bulletTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.CompareTag("Enemy")) {
+            //subtracting Enemy health
+            collision.gameObject.GetComponent<Enemy>().Health -= bulletDamage;
+
+            if(collision.gameObject.GetComponent<Enemy>().Health <= 0){
+                //killing (destroying) enemy object if its health <= 0
+                GameManager.i.totalKills++;
+                Destroy(collision.gameObject);
+            }
             Destroy(gameObject);
         }
     }
