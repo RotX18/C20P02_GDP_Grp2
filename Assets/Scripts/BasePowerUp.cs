@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class BasePowerUp : MonoBehaviour
 {
     //BASE CLASS FOR POWERUPS
     //vars
-    [HideInInspector] public float powerUpDuration;
+    [HideInInspector] public int powerUpDuration;
     [HideInInspector] public float playerSpeedReduction;
-    public Text durationText;
 
     public virtual void ApplyPowerUp(){ //base method that additional things can be added later
         PlayerController.instance.Powered = true;
@@ -18,21 +16,11 @@ public abstract class BasePowerUp : MonoBehaviour
 
     IEnumerator StartPowerUp(){
         //start of powerup
-        yield return new WaitForSeconds(PlayerController.instance.PowerUpDuration);
+        yield return new WaitForSeconds(powerUpDuration);
 
         //when powerup ends
         PlayerController.instance.Powered = false;
         PlayerController.instance.CurrentPower = PlayerController.PowerType.none;
-        Destroy(gameObject, PlayerController.instance.PowerUpDuration);
-    }
-
-    public virtual void Update(){ 
-        if(PlayerController.instance.PowerUpDuration <= 0){
-            durationText.gameObject.SetActive(false);
-        }
-        else if (PlayerController.instance.PowerUpDuration > 0){
-            durationText.gameObject.SetActive(true);
-            durationText.text = PlayerController.instance.PowerUpDuration.ToString("00");
-        }
+        Destroy(gameObject);
     }
 }
