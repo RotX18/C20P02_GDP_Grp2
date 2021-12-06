@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 originalPos;
     private int direction = 1;
+    private bool facingRight = true;
 
     //protected vars
     protected float _health = 3;
@@ -42,10 +43,18 @@ public class Enemy : MonoBehaviour
         if(transform.position.x > (originalPos.x + maxRight)){
             //if enemy has reached the max allowed x pos, flip the travel direction
             direction = -1;
+            if (!facingRight)
+            {
+                Flip();
+            }
         }
         if(transform.position.x < (originalPos.x - maxLeft)){
             //if enemy has reached the min allowed x pos, flip the travel direction
             direction = 1;
+            if (facingRight)
+            {
+                Flip();
+            }
         }
     }
 
@@ -68,5 +77,14 @@ public class Enemy : MonoBehaviour
             GameManager.i.totalKills++;
             Destroy(gameObject);
         }
+    }
+
+    //flip code
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 transformScale = transform.localScale;
+        transformScale.x *= -1;
+        transform.localScale = transformScale;
     }
 }

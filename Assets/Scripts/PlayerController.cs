@@ -39,7 +39,7 @@ public class PlayerController: MonoBehaviour{
 
     //attack vars
     protected bool _powered = false;
-    protected PowerType _currentPower = PowerType.pfizer;
+    protected PowerType _currentPower = PowerType.none;
     protected float _powerUpDuration = 0;
     protected int _health = 3;
 
