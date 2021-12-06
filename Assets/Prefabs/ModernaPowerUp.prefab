@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7661365586855657508}
   m_Layer: 0
   m_Name: ModernaPowerUp
-  m_TagString: Untagged
+  m_TagString: Destory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpDuration: 0
   playerSpeedReduction: 0
+  durationText: {fileID: 0}
+  btnJump: {fileID: 0}
 --- !u!70 &7661365586855657508
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

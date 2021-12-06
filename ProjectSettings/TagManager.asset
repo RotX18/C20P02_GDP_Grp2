@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Options
+  - Destory
   layers:
   - Default
   - TransparentFX
