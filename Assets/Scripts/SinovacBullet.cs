@@ -8,22 +8,20 @@ public class SinovacBullet : BaseBullet
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
-    public override void Start(){
-        //setting the direction based on where the player is facing
-        if(PlayerController.instance.FacingRight) {
-            //facing right
-            direction = 1;
-        }
-        if(!PlayerController.instance.FacingRight) {
-            //facing left
-            direction = -1;
-        }
-
+    void Start() {
+        //getting rigidbody2d component
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(bulletSpeed * direction, 0), ForceMode2D.Impulse);
 
         //setting bullet attributes
+        bulletSpeed = 5;
         bulletDamage = 1;
-        base.Start();
+        bulletTime = 5;
+
+        Destroy(gameObject, bulletTime);
+    }
+
+    private void FixedUpdate() {
+        //making the bullet travel in a straight line
+        rb.velocity = new Vector2(bulletSpeed, 0);
     }
 }
