@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8977618755000721498}
   - component: {fileID: 8977618755000721497}
   - component: {fileID: 8977618755000721502}
-  - component: {fileID: 3681448738209801331}
+  - component: {fileID: 5991506835727864948}
   m_Layer: 0
   m_Name: PfizerBullet
   m_TagString: Untagged
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b50eade238648a4fb68240c887759f6, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.49019608, g: 0, b: 0.81960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,9 +120,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
---- !u!70 &3681448738209801331
-CapsuleCollider2D:
+  m_Constraints: 0
+--- !u!58 &5991506835727864948
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,6 +134,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1213912, y: -0.0077482923}
-  m_Size: {x: 0.67456883, y: 0.52993375}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
