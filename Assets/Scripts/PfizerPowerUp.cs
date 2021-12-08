@@ -30,8 +30,8 @@ public class PfizerPowerUp : BasePowerUp
         //setting powerup attributes (change duration and spd reduction as needed)
         PlayerController.instance.CurrentPower = PlayerController.PowerType.pfizer;
 
-        //8s because 1 weeek = 2s, vax lasts 4 weeks before rejabbing
-        powerUpDuration = 8;
+        //12s because 1 week = 3s, vax lasts 4 weeks before rejabbing
+        powerUpDuration = 12;
         PlayerController.instance.PowerUpDuration += powerUpDuration;
 
         playerSpeedReduction = 5;
