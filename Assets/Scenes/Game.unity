@@ -335,7 +335,7 @@ Transform:
   - {fileID: 1230437758}
   - {fileID: 1578629953}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &138867447
 GameObject:
@@ -573,8 +573,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: This is the Sinovax vaccine and it is a vaccine for people with specific
-    needs but still effective in taking down the viruses with no downside for the
-    duration of the effect.
+    needs, killing enemies in 3 shots while having no physical side effects
 --- !u!222 &201859887
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -653,8 +652,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is the Moderna vaccine and it is a slightly less powerful vaccine
-    but still effective in taking down the viruses for the duration of the effect.
+  m_Text: This is the Moderna vaccine, it is the second most powerful vaccine, killing
+    enemies in two shots while having moderate side effects.
 --- !u!222 &212334645
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1371,9 +1370,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Hi i'm captain white and I am the captain of the white blood cells team.\n\nThe
-    body is being invaded by the covid virus and we need your help to stop them\r.\n\nWe
-    need to choose one of the following vaccine to help in stopping the covid virus"
+  m_Text: "Hi I'm captain white and I am the leader of the white blood cells team.\n\nThis
+    body is being invaded by CoViD-19 virus cells and we need your help to stop them\r.\n\nWe
+    need to choose one of the following vaccines to help stop the CoViD-19 invasion."
 --- !u!222 &338343359
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2260,10 +2259,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pro''s: Able to take down viruses in 2 hits
+  m_Text: 'Pros: Virus cells die in 2 hits
 
 
-    Con''s: Move slower '
+    Cons: You move slower '
 --- !u!222 &593306475
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2856,8 +2855,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Please help us by choosing the vaccines so that we can stop this virus
-    from spreading further into the body! \n"
+  m_Text: "Please help us keep everyone safe by choosing a vaccine type so that we
+    can stop the virus invasion from spreading further into the body! \n"
 --- !u!222 &812389177
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2936,10 +2935,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pro''s: Able to take down viruses in 3 hits
+  m_Text: 'Pros: Virus cells die in 3 hits, there are 3 shots of the vaccine instead
+    of 2
 
 
-    Con''s: '
+    Cons: The duration is shorter'
 --- !u!222 &860809108
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4243,7 +4243,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209619786
 GameObject:
@@ -5453,11 +5453,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pro''s: Able to take down viruses in 1 hits
+  m_Text: 'Pros: Virus cells die with 1 hit.
 
 
-    Con''s: Move slower
-    and unable to jump.'
+    Cons: You move slower and are
+    unable to jump.'
 --- !u!222 &1319623127
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5609,7 +5609,7 @@ PrefabInstance:
       objectReference: {fileID: 1538041334}
     - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5924,8 +5924,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is the Pfizer vaccine and it is a very powerful vaccine which can
-    help in taking down the viruses for the duration of the effect.
+  m_Text: This is the Pfizer vaccine. It is the most powerful vaccine, killing enemies
+    in 1 shot, but it also has the most severe side effects.
 --- !u!222 &1439526998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5951,7 +5951,7 @@ PrefabInstance:
       objectReference: {fileID: 1538041334}
     - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 609069070468018946, guid: 3f8a350a6033918408c411d8d326da5d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8346,7 +8346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.2700005
+      value: -5.02
       objectReference: {fileID: 0}
     - target: {fileID: 7661365586855657505, guid: 10c67ce3236340740ac011ee4ab2ec03, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8407,11 +8407,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7763164619858262211, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7763164619858262211, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.88
+      value: -3.25
       objectReference: {fileID: 0}
     - target: {fileID: 7763164619858262211, guid: 278ddd59c22ed2c4380c9f4a9f9d99ec, type: 3}
       propertyPath: m_LocalPosition.y
