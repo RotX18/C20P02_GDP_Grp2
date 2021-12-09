@@ -19,6 +19,10 @@ public class SinovacBullet : BaseBullet
             direction = -1;
         }
 
+        //making the bullet face the correct direction
+        transform.localScale = new Vector3(transform.localScale.x * -direction, transform.localScale.y);
+
+        //getting the rigidbody and adding the propelling force
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(bulletSpeed * direction, 0), ForceMode2D.Impulse);
 

@@ -23,7 +23,7 @@ public class ModernaPowerUp : BasePowerUp
             GameObject[] des = GameObject.FindGameObjectsWithTag("Destory");
             foreach (GameObject i in des)
             {
-                if (i != this.gameObject && i != null)
+                if (i != this.gameObject && i != null && i.gameObject.name != this.gameObject.name)
                 {
                     Destroy(i);
                 }
@@ -35,8 +35,8 @@ public class ModernaPowerUp : BasePowerUp
         //setting powerup attributes (change duration and spd reduction as needed)
         PlayerController.instance.CurrentPower = PlayerController.PowerType.moderna;
 
-        //8s because 1 weeek = 2s, vax lasts 4 weeks before rejabbing
-        powerUpDuration = 8;
+        //12s because 1 week = 3s, vax lasts 4 weeks before rejabbing
+        powerUpDuration = 12;
         PlayerController.instance.PowerUpDuration += powerUpDuration;
 
         playerSpeedReduction = 5;
