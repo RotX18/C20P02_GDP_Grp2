@@ -6,14 +6,16 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class AnimScript : MonoBehaviour
 {
-
+    public Sprite sprite;
     bool facingRight = true;
     Animator anim;
+    SpriteRenderer spriteRenderer;
     PlayerController.PowerType _currentPower;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
@@ -64,7 +66,8 @@ public class AnimScript : MonoBehaviour
 
         if (PlayerController.instance.Health == 0)
         {
-            anim.SetBool("Die", true);  
+            anim.enabled = false;
+            spriteRenderer.sprite = sprite;
         }
     }
 

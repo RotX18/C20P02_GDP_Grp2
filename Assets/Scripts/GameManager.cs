@@ -22,14 +22,10 @@ public class GameManager : MonoBehaviour
     //introduction
     public float page;
     public Button next;
-    public Text start;
+    public Text start, intro, outro;
     public Button back;
-    public Text intro;
-    public Text outro;
-    public GameObject vax1;
-    public GameObject vax2;
-    public GameObject vax3;
-    public GameObject menu;
+    public GameObject vax1,vax2, vax3, menu, deathUI,health1, health2, health3;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -51,7 +47,24 @@ public class GameManager : MonoBehaviour
     {
         TimerUI();
         tKills();
-        
+        tHealth();
+    }
+
+    void tHealth()
+    {
+        switch (PlayerController.instance.Health)
+        {
+            case 0:
+                health1.SetActive(false);
+                deathUI.SetActive(true);
+                break;
+            case 1:
+                health2.SetActive(false);
+                break;
+            case 2:
+                health3.SetActive(false);
+                break;
+        }
     }
     void tKills()
     {
