@@ -69,11 +69,6 @@ public class Enemy : MonoBehaviour
             //subtracting player health
             PlayerController.instance.Health--;
             Debug.Log($"CURRENT HEALTH: {PlayerController.instance.Health}");
-
-            if(PlayerController.instance.Health <= 0){
-                //calling GameOver method if player has no more health
-                PlayerController.instance.GameOver();
-            }
             GameManager.i.totalKills++;
             Destroy(gameObject);
         }

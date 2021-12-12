@@ -177,8 +177,8 @@ public class PlayerController: MonoBehaviour{
             //casting ray based on where the player is facing
             if(_facingRight){
                 //if facing right, cast right
-                hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), new Vector2(transform.position.x + meleeRange, transform.position.y));
-                if(hit.collider.CompareTag("Enemy")) { 
+                hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), new Vector2(transform.position.x + meleeRange, transform.position.y), 1);
+                if(hit.collider != null && hit.collider.CompareTag("Enemy")) {
                     //if ray hits enemy
                     Destroy(hit.collider.gameObject);
                     GameManager.i.totalKills++;
@@ -186,8 +186,8 @@ public class PlayerController: MonoBehaviour{
             }
             else if (!_facingRight){
                 //if not facing right (facing left), cast left
-                hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), new Vector2(transform.position.x - meleeRange, transform.position.y));
-                if(hit.collider.CompareTag("Enemy")) {
+                hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), new Vector2(transform.position.x - meleeRange, transform.position.y), 1);
+                if(hit.collider != null && hit.collider.CompareTag("Enemy")) {
                     //if ray hits enemy
                     Destroy(hit.collider.gameObject);
                     GameManager.i.totalKills++;
@@ -227,9 +227,4 @@ public class PlayerController: MonoBehaviour{
         }
     }
 
-    public void GameOver(){
-        //GameOver method, add code for ui later
-        Debug.Log("GAME OVER!");
-        Time.timeScale = 0;
-    }
 }

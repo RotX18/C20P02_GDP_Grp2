@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Diagnostics;
 using System.Threading;
 
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     public Button next;
     public Text start, intro, outro;
     public Button back;
-    public GameObject vax1,vax2, vax3, menu, deathUI,health1, health2, health3;
+    public GameObject vax1,vax2, vax3, menu, deathUI, winUI, health1, health2, health3;
     
 
     // Start is called before the first frame update
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
             case 0:
                 health1.SetActive(false);
                 deathUI.SetActive(true);
+                Time.timeScale = 0;
                 break;
             case 1:
                 health2.SetActive(false);
@@ -69,6 +71,11 @@ public class GameManager : MonoBehaviour
     void tKills()
     {
         scoring.text = totalKills.ToString("00") + "/12";
+        if (totalKills == 12 && PlayerController.instance.Health > 0)
+        {
+            winUI.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
     void TimerUI()
     {
@@ -139,5 +146,15 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+    }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 }
