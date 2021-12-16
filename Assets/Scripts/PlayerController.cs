@@ -16,7 +16,7 @@ public class PlayerController: MonoBehaviour{
     public float maxSpeed = 15f;
 
     //attack vars
-    public float meleeRange = 1f;
+    public float meleeRange = 2.5f;
     public GameObject bulletPrefabPfizer;
     public GameObject bulletPrefabModerna;
     public GameObject bulletPrefabSinovac;
