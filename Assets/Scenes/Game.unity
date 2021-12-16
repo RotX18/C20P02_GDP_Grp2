@@ -3407,9 +3407,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You have 3 life to stay alive and defeat all the viruses\nPlease help
-    us keep everyone safe by choosing a vaccine type so that we can stop the virus
-    invasion from spreading further into the body! \n"
+  m_Text: "You have 3 lives, eliminate the virus cells within 3 attempts.\nPlease
+    help keep everyone safe by choosing a vaccine varient so that we can stop the
+    virus invasion from spreading further into the body! \n"
 --- !u!222 &812389177
 CanvasRenderer:
   m_ObjectHideFlags: 0
