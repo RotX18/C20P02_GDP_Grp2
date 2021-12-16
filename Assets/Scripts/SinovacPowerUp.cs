@@ -24,10 +24,7 @@ public class SinovacPowerUp: BasePowerUp {
                 {
                     Destroy(i);
                 }
-
-                
             }
-
         }
     }
     
@@ -35,8 +32,8 @@ public class SinovacPowerUp: BasePowerUp {
         //setting powerup attributes (change duration and spd reduction as needed)
         PlayerController.instance.CurrentPower = PlayerController.PowerType.sinovac;
 
-        //9s because 1 week = 3s, vax lasts 3 weeks before rejabbing (3-4 weeks, we assume the sooner)
-        powerUpDuration = 9;
+        //12s because 1 week = 4s, vax lasts 3 weeks before rejabbing (3-4 weeks, we assume the sooner)
+        powerUpDuration = 12;
         PlayerController.instance.PowerUpDuration += powerUpDuration;
 
         //starting powerup
