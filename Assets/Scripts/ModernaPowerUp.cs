@@ -35,8 +35,8 @@ public class ModernaPowerUp : BasePowerUp
         //setting powerup attributes (change duration and spd reduction as needed)
         PlayerController.instance.CurrentPower = PlayerController.PowerType.moderna;
 
-        //12s because 1 week = 3s, vax lasts 4 weeks before rejabbing
-        powerUpDuration = 12;
+        //16s because 1 week = 4s, vax lasts 4 weeks before rejabbing
+        powerUpDuration = 16;
         PlayerController.instance.PowerUpDuration += powerUpDuration;
 
         playerSpeedReduction = 5;
